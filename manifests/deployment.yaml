@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: foobar
+  name: foobar
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: foobar
+  template:
+    metadata:
+      labels:
+        app: foobar
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        ports:
+        - containerPort: 80
+
