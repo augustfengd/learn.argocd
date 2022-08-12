@@ -1,0 +1,20 @@
+#+TITLE: argoCD
+
+* About
+
+Just some code to jump start a Kubernetes cluster and an argoCD deployment.
+
+* Usage
+
+** start
+
+#+NAME: cue setup
+#+begin_src
+  cue setup
+#+end_src
+
+** stop
+
+#+begin_src
+  cue clean
+#+end_src
