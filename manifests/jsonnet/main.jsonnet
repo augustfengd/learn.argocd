@@ -1,11 +1,11 @@
-{
+function(name) {
   apiVersion: 'apps/v1',
   kind: 'Deployment',
   metadata: {
+    name: name,
     labels: {
-      app: 'foobaz',
+      app: nameq,
     },
-    name: 'foobaz',
   },
   spec: {
     replicas: 1,
@@ -17,7 +17,7 @@
     template: {
       metadata: {
         labels: {
-          app: 'foobaz',
+          app: name,
         },
       },
       spec: {
