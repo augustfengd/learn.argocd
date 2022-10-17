@@ -50,9 +50,6 @@ command: setup: {
 			$dep: command.setup["argocd"]["namespace"].$done
 			cmd:  #cluster.kubectl + ["apply", "-n", "argocd", "-f", "https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml"]
 		}
-	}
-
-	applications: {
 		repo: exec.Run & {
 			$dep:  command.setup["argocd"]["namespace"].$done
 			cmd:   #cluster.kubectl + [ "apply", "-n", "argocd", "-f", "-"]
@@ -63,12 +60,13 @@ command: setup: {
 				stringData: password: json.Unmarshal(command.setup["github"].stdout).token
 			})
 		}
-		_applications: {
-			"clusters": exec.Run & {
-				$dep: command.setup["argocd"]["manifests"].$done
-				cmd:  #cluster.kubectl + ["-n", "argocd", "apply", "-f", "config/clusters.yaml"]
-			}
-		}
+	}
+}
+
+command: applications: {
+	jsonnet: exec.Run & {
+		cmd:   #cluster.kubectl + [ "apply", "-n", "argocd", "-f", "-"]
+		stdin: yaml.Marshal(apps.jsonnet)
 	}
 }
 
