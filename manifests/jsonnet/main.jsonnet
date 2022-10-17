@@ -4,7 +4,7 @@ function(name) {
   metadata: {
     name: name,
     labels: {
-      app: nameq,
+      app: name,
     },
   },
   spec: {
