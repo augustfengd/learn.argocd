@@ -10,7 +10,7 @@ _#argocdApplication: {
 	}
 	spec: {
 		project: "default"
-		source:  _#manifestSource | _#helmSource | _#pluginSource
+		source:  _#manifestsSource | _#helmSource | _#pluginSource
 		destination: {
 			namespace: string
 			server:    "https://kubernetes.default.svc"
