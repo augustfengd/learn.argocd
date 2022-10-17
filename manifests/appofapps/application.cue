@@ -7,7 +7,7 @@ import (
 apiVersion: "argoproj.io/v1alpha1"
 kind:       "Application"
 metadata: {
-	name:      "appofapps.hello-world"
+	name:      "appofapps.chart"
 	namespace: "argocd"
 	finalizers: ["resources-finalizer.argocd.argoproj.io"]
 }
