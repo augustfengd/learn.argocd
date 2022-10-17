@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: appofapps.chart
+  name: appofapps.mixed.chart
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -15,7 +15,7 @@ spec:
       values: |
         fullnameOverride: hello-world
   destination:
-    namespace: appofapps
+    namespace: appofapps-mixed
     server: https://kubernetes.default.svc
   syncPolicy:
     syncOptions:
