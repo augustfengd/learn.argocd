@@ -11,7 +11,7 @@ function(name) {
     replicas: 1,
     selector: {
       matchLabels: {
-        app: 'foobaz',
+        app: name,
       },
     },
     template: {
