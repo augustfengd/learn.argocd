@@ -56,7 +56,7 @@ _#argocdApplication: {
 }
 
 apps: jsonnet: _#argocdApplication & {
-	metadata: name: "jsonnet-foobar"
+	metadata: name: "jsonnet"
 	spec: source: {
 		repoURL:        "https://github.com/augustfengd/learn-argocd"
 		path:           "manifests/jsonnet"
@@ -65,19 +65,15 @@ apps: jsonnet: _#argocdApplication & {
 			jsonnet: tlas: [{name: "name", value: "foobar"}]
 		}
 	}
-	spec: destination: namespace: "jsonnet-foobar"
+	spec: destination: namespace: "jsonnet"
 }
 
 apps: "appofapps": _#argocdApplication & {
-	metadata: name: "jsonnet-foobar"
+	metadata: name: "appofapps"
 	spec: source: {
 		repoURL:        "https://github.com/augustfengd/learn-argocd"
-		path:           "manifests/jsonnet"
+		path:           "manifests/appofapps"
 		targetRevision: "main"
-		directory: {
-			jsonnet: tlas: [{name: "name", value: "foobar"}]
-		}
 	}
-	spec: destination: namespace: "jsonnet-foobar"
+	spec: destination: namespace: "appofapps"
 }
-
