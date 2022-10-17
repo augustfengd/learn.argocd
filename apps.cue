@@ -62,12 +62,22 @@ apps: jsonnet: _#argocdApplication & {
 	spec: destination: namespace: "jsonnet"
 }
 
-apps: "appofapps": _#argocdApplication & {
-	metadata: name: "appofapps"
+apps: "appofapps.pure": _#argocdApplication & {
+	metadata: name: "appofapps.pure"
 	spec: source: {
 		repoURL:        "https://github.com/augustfengd/learn-argocd"
-		path:           "manifests/appofapps"
+		path:           "manifests/appofapps.pure"
 		targetRevision: "main"
 	}
-	spec: destination: namespace: "appofapps"
+	spec: destination: namespace: "appofapps-pure"
+}
+
+apps: "appofapps.mixed": _#argocdApplication & {
+	metadata: name: "appofapps.mixed"
+	spec: source: {
+		repoURL:        "https://github.com/augustfengd/learn-argocd"
+		path:           "manifests/appofapps.mixed"
+		targetRevision: "main"
+	}
+	spec: destination: namespace: "appofapps-mixed"
 }

@@ -68,9 +68,13 @@ command: applications: {
 		cmd:   #cluster.kubectl + [ "apply", "-n", "argocd", "-f", "-"]
 		stdin: yaml.Marshal(apps.jsonnet)
 	}
-	appofapps: exec.Run & {
+	"appofapps.pure": exec.Run & {
 		cmd:   #cluster.kubectl + [ "apply", "-n", "argocd", "-f", "-"]
-		stdin: yaml.Marshal(apps.appofapps)
+		stdin: yaml.Marshal(apps."appofapps.pure")
+	}
+	"appofapps.mixed": exec.Run & {
+		cmd:   #cluster.kubectl + [ "apply", "-n", "argocd", "-f", "-"]
+		stdin: yaml.Marshal(apps."appofapps.mixed")
 	}
 }
 

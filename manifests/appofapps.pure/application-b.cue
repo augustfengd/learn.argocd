@@ -1,4 +1,4 @@
-// cue export application.cue --out yaml > application.yaml
+// cue export -f application-b.cue --out yaml > application-b.yaml
 
 import (
 	"encoding/yaml"
@@ -7,20 +7,18 @@ import (
 apiVersion: "argoproj.io/v1alpha1"
 kind:       "Application"
 metadata: {
-	name:      "appofapps.chart"
+	name:      "appofapps.manifests"
 	namespace: "argocd"
 	finalizers: ["resources-finalizer.argocd.argoproj.io"]
 }
 spec: {
 	project: "default"
 	source: {
-		repoURL:        "https://helm.github.io/examples"
-		targetRevision: "0.1.0"
-		chart:          "hello-world"
-		helm: values: yaml.Marshal({fullnameOverride: "hello-world"})
+		repoURL: "https://helm.github.io/examples"
+		path:    "manifests/yaml"
 	}
 	destination: {
-		namespace: "appofapps"
+		namespace: "appofapps-pure"
 		server:    "https://kubernetes.default.svc"
 	}
 	syncPolicy: {
