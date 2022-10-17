@@ -25,5 +25,6 @@ spec: {
 	}
 	syncPolicy: {
 		syncOptions: ["CreateNamespace=true"]
+		automated: {}
 	}
 }

@@ -14,7 +14,7 @@ metadata: {
 spec: {
 	project: "default"
 	source: {
-		repoURL: "https://helm.github.io/examples"
+		repoURL: "https://github.com/augustfengd/learn-argocd"
 		path:    "manifests/yaml"
 	}
 	destination: {
@@ -23,5 +23,6 @@ spec: {
 	}
 	syncPolicy: {
 		syncOptions: ["CreateNamespace=true"]
+		automated: {}
 	}
 }

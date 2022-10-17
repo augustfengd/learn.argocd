@@ -15,7 +15,10 @@ _#argocdApplication: {
 			namespace: string
 			server:    "https://kubernetes.default.svc"
 		}
-		syncPolicy: syncOptions: ["CreateNamespace=true"]
+		syncPolicy: {
+			syncOptions: ["CreateNamespace=true"]
+			automated: {}
+		}
 	}
 	_#manifestsSource: {
 		repoURL:        string
