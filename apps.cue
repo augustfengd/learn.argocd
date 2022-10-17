@@ -10,24 +10,18 @@ _#argocdApplication: {
 	}
 	spec: {
 		project: "default"
-		source:  _#yamlSource | _#helmSource | _#jsonnetSource | _#pluginSource
+		source:  _#manifestSource | _#helmSource | _#pluginSource
 		destination: {
 			namespace: string
 			server:    "https://kubernetes.default.svc"
 		}
 		syncPolicy: syncOptions: ["CreateNamespace=true"]
 	}
-	_#yamlSource: {
+	_#manifestsSource: {
 		repoURL:        string
 		targetRevision: string
 		path:           string
-	}
-
-	_#jsonnetSource: {
-		repoURL:        string
-		targetRevision: string
-		path:           string
-		directory: {
+		directory?: {
 			jsonnet: {
 				tlas?: [{
 					name:  string
