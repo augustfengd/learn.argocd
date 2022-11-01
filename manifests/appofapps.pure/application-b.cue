@@ -14,7 +14,7 @@ metadata: {
 spec: {
 	project: "default"
 	source: {
-		repoURL: "https://github.com/augustfengd/learn-argocd"
+		repoURL: "https://github.com/augustfengd/learn.argocd"
 		path:    "manifests/yaml"
 	}
 	destination: {

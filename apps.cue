@@ -55,7 +55,7 @@ _#argocdApplication: {
 apps: jsonnet: _#argocdApplication & {
 	metadata: name: "jsonnet"
 	spec: source: {
-		repoURL:        "https://github.com/augustfengd/learn-argocd"
+		repoURL:        "https://github.com/augustfengd/learn.argocd"
 		path:           "manifests/jsonnet"
 		targetRevision: "main"
 		directory: {
@@ -68,7 +68,7 @@ apps: jsonnet: _#argocdApplication & {
 apps: "appofapps.pure": _#argocdApplication & {
 	metadata: name: "appofapps.pure"
 	spec: source: {
-		repoURL:        "https://github.com/augustfengd/learn-argocd"
+		repoURL:        "https://github.com/augustfengd/learn.argocd"
 		path:           "manifests/appofapps.pure"
 		targetRevision: "main"
 	}
@@ -78,7 +78,7 @@ apps: "appofapps.pure": _#argocdApplication & {
 apps: "appofapps.mixed": _#argocdApplication & {
 	metadata: name: "appofapps.mixed"
 	spec: source: {
-		repoURL:        "https://github.com/augustfengd/learn-argocd"
+		repoURL:        "https://github.com/augustfengd/learn.argocd"
 		path:           "manifests/appofapps.mixed"
 		targetRevision: "main"
 	}

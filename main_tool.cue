@@ -26,7 +26,7 @@ import (
 	stringData: {
 		username: "augustfengd"
 		password: string
-		url:      "https://github.com/augustfengd/learn-argocd"
+		url:      "https://github.com/augustfengd/learn.argocd"
 	}
 	type: "Opaque"
 }
@@ -55,7 +55,7 @@ command: setup: {
 			cmd:   #cluster.kubectl + [ "apply", "-n", "argocd", "-f", "-"]
 			stdin: yaml.Marshal(#repositorySecret & {
 				metadata: {
-					name: "learn-argocd"
+					name: "learn.argocd"
 				}
 				stringData: password: json.Unmarshal(command.setup["github"].stdout).token
 			})
